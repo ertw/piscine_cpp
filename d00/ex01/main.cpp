@@ -1,15 +1,24 @@
-#include <iostream>
+#include "Contact.class.hpp"
 
-static void checkInput(std::string userInput) {
-  if (userInput == "EXIT") {
-    std::exit(1);
+static void menu(Contact *contacts) {
+  std::string userInput;
+  int contactIndex = 0;
+
+  while (1) {
+    std::cout << "\x1B[2J\x1B[H";
+    std::cout << "SEARCH, ADD, or EXIT" << std::endl;
+    std::getline(std::cin, userInput);
+    if (userInput == "EXIT")
+      break;
+    else if (userInput == "ADD")
+      contacts[contactIndex].setAttributes();
+    else if (userInput == "SEARCH")
+      break;
+    contactIndex++;
   }
 }
 
 int main(void) {
-  std::string userInput;
-  while (1) {
-    std::cin >> userInput;
-    checkInput(userInput);
-  }
+  Contact contacts[8];
+  menu(contacts);
 }

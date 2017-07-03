@@ -36,3 +36,6 @@
 
 # Test files
 test*.*
+
+# ctags
+tags/

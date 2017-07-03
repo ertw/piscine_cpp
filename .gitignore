@@ -38,4 +38,4 @@
 test*.*
 
 # ctags
-tags/*
+tags/

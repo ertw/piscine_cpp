@@ -9,8 +9,11 @@ class Contact {
   Contact(void);
   ~Contact(void);
   void setAttributes();
+  void printAttributes();
+  void printSummary();
 
  private:
+  //  unsigned short index;
   std::string firstname;
   std::string lastname;
   std::string nickname;
@@ -22,6 +25,7 @@ class Contact {
   std::string favorite_meal;
   std::string underwear_color;
   std::string darkest_secret;
+  void printFormatted(std::string);
 };
 
 #endif

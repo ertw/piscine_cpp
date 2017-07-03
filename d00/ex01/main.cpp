@@ -21,4 +21,6 @@ static void menu(Contact *contacts) {
 int main(void) {
   Contact contacts[8];
   menu(contacts);
+  contacts[0].printAttributes();
+  contacts[0].printSummary();
 }

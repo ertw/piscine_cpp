@@ -1,7 +1,7 @@
 #!/usr/bin/make -j$(getconf _NPROCESSORS_ONLN) -f
 NAME = top8contacts
 OBJECTS = Contact.class.o main.o
-CXXFLAGS = -Wall -Werror -Wextra#-g -fno-omit-frame-pointer -fsanitize=address
+CXXFLAGS = -Wall -Werror -Wextra -g -fno-omit-frame-pointer -fsanitize=address
 #MAKEFLAGS = -j$(getconf _NPROCESSORS_ONLN)
 all: $(NAME)
 $(NAME): $(OBJECTS)

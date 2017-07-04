@@ -17,10 +17,10 @@ bool Account::makeWithdrawal(int withdrawal) { return (false); }
 int Account::checkAmount(void) const { return (this->_amount); }
 void Account::displayStatus(void) const {}
 
-int _nbAccounts = 0;
-int _totalAmount = 0;
-int _totalNbDeposits = 0;
-int _totalNbWithdrawals = 0;
+int Account::_nbAccounts = 0;
+int Account::_totalAmount = 0;
+int Account::_totalNbDeposits = 0;
+int Account::_totalNbWithdrawals = 0;
 
 void Account::_displayTimestamp(void) {
   std::cout << "[" << __TIMESTAMP__ << "] ";

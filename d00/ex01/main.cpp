@@ -1,7 +1,7 @@
 #include "Contact.class.hpp"
 
 static int getNumContacts(Contact *contacts) {
-  for (int i = 0; i <= Contact::index; i++) {
+  for (int i = 0; i < Contact::index; i++) {
     if (!contacts[i].isSet) return i - 1;
   }
   return Contact::index;
@@ -48,7 +48,7 @@ static void menu(Contact *contacts) {
     std::getline(std::cin, userInput);
     if (userInput == "EXIT")
       break;
-    else if (userInput == "ADD") {
+    else if (userInput == "ADD" && contactIndex < 8) {
       contacts[contactIndex].setAttributes();
       contactIndex++;
     } else if (userInput == "SEARCH")

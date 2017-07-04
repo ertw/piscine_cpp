@@ -1,10 +1,17 @@
 #include "Contact.class.hpp"
 
-Contact::Contact() { return; }
+int Contact::index;
 
-Contact::~Contact() { return; }
+Contact::Contact(void) {
+  this->id = Contact::index++;
+  this->isSet = false;
+  return;
+}
 
-void Contact::setAttributes() {
+Contact::~Contact(void) { return; }
+
+void Contact::setAttributes(void) {
+  this->isSet = true;
   std::cout << "\x1B[2J\x1B[H";
   std::string userInput;
   std::cout << "Input first name" << std::endl;
@@ -42,7 +49,7 @@ void Contact::setAttributes() {
   this->darkest_secret = userInput;
 }
 
-void Contact::printAttributes() {
+void Contact::printAttributes(void) {
   std::cout << "\x1B[2J\x1B[H";
   std::cout << "first name: ";
   std::cout << this->firstname << std::endl;
@@ -68,13 +75,26 @@ void Contact::printAttributes() {
   std::cout << this->darkest_secret << std::endl;
 }
 
-void Contact::printSummary() {
-  std::cout << "\x1B[2J\x1B[H";
+void Contact::printHeader(void) {
+  printFormatted("ID");
+  std::cout << " | ";
+  printFormatted("FIRST");
+  std::cout << " | ";
+  printFormatted("LAST");
+  std::cout << " | ";
+  printFormatted("NICKNAME");
+  std::cout << std::endl;
+}
+
+void Contact::printSummary(void) {
+  printFormatted(std::to_string(this->id));
+  std::cout << " | ";
   printFormatted(this->firstname);
   std::cout << " | ";
   printFormatted(this->lastname);
   std::cout << " | ";
   printFormatted(this->nickname);
+  std::cout << std::endl;
 }
 
 void Contact::printFormatted(std::string attribute) {

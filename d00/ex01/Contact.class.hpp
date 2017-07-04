@@ -6,14 +6,17 @@
 
 class Contact {
  public:
+  static int index;
+  bool isSet;
   Contact(void);
   ~Contact(void);
-  void setAttributes();
-  void printAttributes();
-  void printSummary();
+  void setAttributes(void);
+  void printAttributes(void);
+  void printHeader(void);
+  void printSummary(void);
 
  private:
-  //  unsigned short index;
+  int id;
   std::string firstname;
   std::string lastname;
   std::string nickname;

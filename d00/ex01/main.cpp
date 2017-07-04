@@ -8,6 +8,7 @@ static int getNumContacts(Contact *contacts) {
 }
 
 static void search(Contact *contacts) {
+  int inputNum = -1;
   std::string userInput;
   std::cout << "\x1B[2J\x1B[H";
   if (!contacts[0].isSet) {
@@ -24,8 +25,13 @@ static void search(Contact *contacts) {
     }
   }
   std::getline(std::cin, userInput);
-  int inputNum = std::stoi(userInput);
-  if (inputNum <= getNumContacts(contacts) && contacts[inputNum].isSet) {
+  try {
+    inputNum = std::stoi(userInput);
+  } catch (std::exception) {
+  }
+
+  if (inputNum >= 0 && inputNum <= getNumContacts(contacts) &&
+      contacts[inputNum].isSet) {
     contacts[inputNum].printAttributes();
     std::cout << "Press return to go back to the previous menu" << std::endl;
     std::getline(std::cin, userInput);
